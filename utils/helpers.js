@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-import { FontAwesome, MaterialIcons, MaterialComunityIcons } from '@expo/vector-icons'
+import { FontAwesome, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons'
 import { white } from './colors'
 
 export function isBetween (num, x, y) {
@@ -74,7 +74,7 @@ export function getMetricMetaInfo (metric) {
 			getIcon() {
 				return (
 					<View>
-						<MaterialComunityIcons
+						<MaterialCommunityIcons
 							name= 'bike'
 							color= {'black'}
 							size={35}
@@ -92,7 +92,7 @@ export function getMetricMetaInfo (metric) {
 			getIcon() {
 				return (
 					<View>
-						<MaterialIcons
+						<MaterialCommunityIcons
 							name= 'swim'
 							color= {'black'}
 							size={35}
@@ -128,7 +128,7 @@ export function getMetricMetaInfo (metric) {
 			getIcon() {
 				return (
 					<View>
-						<MaterialComunityIcons
+						<MaterialCommunityIcons
 							name= 'food'
 							color= {'black'}
 							size={35}
@@ -140,7 +140,7 @@ export function getMetricMetaInfo (metric) {
 
 	}
 
-	return type metric === 'undefined'
+	return typeof metric === 'undefined'
 		? info
 		: info[metric]
 
