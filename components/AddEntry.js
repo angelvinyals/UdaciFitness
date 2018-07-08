@@ -4,6 +4,7 @@ import { getMetricMetaInfo , timeToString } from '../utils/helpers'
 import UdaciSlider from './UdaciSlider'
 import UdaciSteppers from './UdaciSteppers'
 import DateHeader from './DateHeader'
+import { Ionicons } from '@expo/vector-icons'
 
 
 
@@ -83,6 +84,20 @@ export default class AddEntry extends Component {
 
 	render () {
 		const metaInfo = getMetricMetaInfo()
+
+		if(true){
+			return (
+				<View>
+					<Ionicons
+						name='ios-happy-outline'
+						size={100}
+					/>
+					<Text>You already logged your infomation for today</Text>
+
+					
+				</View>
+			)
+		}
 
 		return (			
 			<View>
