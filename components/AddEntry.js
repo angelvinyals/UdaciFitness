@@ -6,7 +6,7 @@ import UdaciSteppers from './UdaciSteppers'
 import DateHeader from './DateHeader'
 import TextButton from './TextButton'
 import { Ionicons } from '@expo/vector-icons'
-
+import { submitEntry, removeEntry } from '../utils/api'
 
 export default class AddEntry extends Component {
 
@@ -68,6 +68,8 @@ export default class AddEntry extends Component {
 
 		//Navigate to home
 
+		submitEntry( {key, entry} )
+
 		// Clear local notification
 	}
 
@@ -78,7 +80,7 @@ export default class AddEntry extends Component {
 
 		// route to Home
 
-		// update 'DB'
+		removeEntry(key)
 
 
 
