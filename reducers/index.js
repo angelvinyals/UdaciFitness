@@ -1,4 +1,4 @@
-import {RECEIVE_ENTRIES, ADD_ENTRY} from  '../actioins'
+import {RECEIVE_ENTRIES, ADD_ENTRY} from  '../actions'
 
 function entries( state= {} , action) {
 
@@ -14,7 +14,7 @@ function entries( state= {} , action) {
 	      return {
 	        ...state,
 	        ...action.entry
-	      })
+	      }
 
 	    default:
 	      return state
