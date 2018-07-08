@@ -39,7 +39,7 @@ export default function UdaciSteppers ({max, unit, step, value, onIncrement, onD
 			
 		    <View style = {styles.metricCounter}>
 				<Text style= {{fontSize: 24, textAlign: 'center'}}>{`${value} `} </Text>
-				<Text style= {{fontSize: 18, textAlign: 'center', color: 'gray'}}>{unit}</Text>
+				<Text style= {{fontSize: 18, textAlign: 'center', color: gray}}>{unit}</Text>
 			</View>
 		</View>
 	)
