@@ -4,6 +4,7 @@ import { getMetricMetaInfo , timeToString } from '../utils/helpers'
 import UdaciSlider from './UdaciSlider'
 import UdaciSteppers from './UdaciSteppers'
 import DateHeader from './DateHeader'
+import TextButton from './TextButton'
 import { Ionicons } from '@expo/vector-icons'
 
 
@@ -82,6 +83,19 @@ export default class AddEntry extends Component {
 		// Clear local notification
 	}
 
+	reset = () => {
+		const key = timeToString()
+
+		// update Redux
+
+		// route to Home
+
+		// update 'DB'
+
+		
+
+	}
+
 	render () {
 		const metaInfo = getMetricMetaInfo()
 
@@ -94,7 +108,10 @@ export default class AddEntry extends Component {
 					/>
 					<Text>You already logged your infomation for today</Text>
 
-					
+				<TextButton onPress={this.reset}>
+					Reset
+				</TextButton>
+
 				</View>
 			)
 		}
