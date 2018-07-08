@@ -4,15 +4,15 @@ import { FontAwesome, Entypo } from '@expo/vector-icons'
 
 export default function UdaciSteppers ({max, unit, step, value, onIncrement, onDecrement}) {
 	return(
-		<View style={styles.container}>			
+		<View >			
 			<TouchableOpacity onPress={onDecrement}>
 		      	<FontAwesome name="minus" size={30} color={'black'} />
 		    </TouchableOpacity>
 		    <TouchableOpacity onPress={onIncrement}>
 		      	<FontAwesome name="plus" size={30} color={'black'} />
 		    </TouchableOpacity>
-		    <View >
-				<Text>{value}</Text>
+		    <View style={styles.container}>
+				<Text>{`${value} `} </Text>
 				<Text>{unit}</Text>
 			</View>
 		</View>
