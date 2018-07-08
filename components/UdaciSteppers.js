@@ -4,11 +4,11 @@ import { FontAwesome, Entypo } from '@expo/vector-icons'
 
 export default function UdaciSteppers ({max, unit, step, value, onIncrement, onDecrement}) {
 	return(
-		<View >			
-			<TouchableOpacity onPress={onDecrement}>
+		<View style={styles.container} >			
+			<TouchableOpacity onPress={onDecrement} style={{width: 50, height: 50}} >
 		      	<FontAwesome name="minus" size={30} color={'black'} />
 		    </TouchableOpacity>
-		    <TouchableOpacity onPress={onIncrement}>
+		    <TouchableOpacity onPress={onIncrement} style={{width: 50, height: 50}} >
 		      	<FontAwesome name="plus" size={30} color={'black'} />
 		    </TouchableOpacity>
 		    <View style={styles.container}>
@@ -22,6 +22,7 @@ export default function UdaciSteppers ({max, unit, step, value, onIncrement, onD
 const styles = StyleSheet.create({
    container: {
      flexDirection: 'row', 
-     alignSelf: 'flex-start'
+     alignSelf: 'center',
+     justifyContent: 'space-around',
    }
 });

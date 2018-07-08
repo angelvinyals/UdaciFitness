@@ -1,5 +1,5 @@
 import React, {Component } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import { getMetricMetaInfo , timeToString, getDailyReminderValue } from '../utils/helpers'
 import UdaciSlider from './UdaciSlider'
@@ -9,6 +9,7 @@ import TextButton from './TextButton'
 import { Ionicons } from '@expo/vector-icons'
 import { submitEntry, removeEntry } from '../utils/api'
 import {addEntry, receiveEntries } from  '../actions'
+import { white, purple, yellow, red } from '../utils/colors'
 
 class AddEntry extends Component {
 
@@ -97,14 +98,17 @@ class AddEntry extends Component {
 
 		if(this.props.alreadyLogged){
 			return (
-				<View >
+				<View style={styles.center}>
 					<Ionicons
-						name='ios-happy-outline'
+						name={Platform.OS === 'ios' 
+								?'ios-happy-outline'
+								: 'md-happy'
+							}
 						size={100}
 					/>
 					<Text>You already logged your infomation for today</Text>
 
-				<TextButton onPress={this.reset}>
+				<TextButton onPress={this.reset} style= {{padding: 10}}>
 					Reset
 				</TextButton>
 
@@ -113,7 +117,7 @@ class AddEntry extends Component {
 		}
 
 		return (			
-			<View>
+			<View style={styles.container}>
 				<DateHeader
 					date= {(new Date()).toLocaleDateString()}
 				/>
@@ -123,7 +127,7 @@ class AddEntry extends Component {
 					const value = this.state[key]
 
 					return (
-						<View key={key}>
+						<View key={key} style={styles.row}>
 							{getIcon()}
 							{type === 'slider'
 								? <UdaciSlider
@@ -141,7 +145,14 @@ class AddEntry extends Component {
 						</View>
 					)
 				})}	
-				<TextButton onPress={this.submit}>
+				<TextButton 
+					onPress={this.submit}
+					style={Platform.OS === 'ios' 
+							? styles.iosSubmitBtn
+							: styles.androidSubmitBtn
+					}
+					styleChild={styles.submitBtnText}
+				>
 					Submit
 				</TextButton>
 				
@@ -149,6 +160,7 @@ class AddEntry extends Component {
 		)
 	}
 }
+
 
 const mapStateToProps = state => {
   const key= timeToString()
@@ -165,3 +177,54 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(  mapStateToProps,  mapDispatchToProps )(AddEntry)
+
+
+const styles= StyleSheet.create({
+	container:{
+		flex: 1,
+		padding: 20,
+		backgroundColor: white,
+
+	},
+	iosSubmitBtn: {
+		backgroundColor: purple,
+		padding: 10,
+		borderRadius: 7,
+		height: 45,
+		marginLeft: 40,
+		marginRight: 40,
+	 },
+	androidSubmitBtn: {
+		backgroundColor: red,
+		padding: 10,
+		paddingLeft: 30,
+		paddingRight: 30,
+		borderRadius: 2,
+		height: 45,
+		alignSelf: 'flex-end',
+		justifyContent: 'center',
+		alignItems: 'center'
+
+	},
+	submitBtnText: {
+		color: white,
+		fontSize: 22,
+		textAlign: 'center'
+	},
+	row:{
+		flexDirection:'row',
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'flex-start',
+
+	},
+	center:{
+		flexDirection:'column',
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+		marginRight: 30,
+		marginLeft: 30,
+
+	},
+})

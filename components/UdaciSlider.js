@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Slider } from 'react-native'
 
 export default function UdaciSlider ({ max, step,  unit, value,  onChange}) {
 	return(
-		<View>
+		<View style= { styles.container}>
 			<Slider
 				step={step}
 				value={value}
@@ -11,7 +11,7 @@ export default function UdaciSlider ({ max, step,  unit, value,  onChange}) {
 				minimumValue= {0}
 				onValueChange= {onChange}
 			/>
-			<View style={styles.container}>
+			<View>
 				<Text>{`${value} `}</Text>
 				<Text>{unit}</Text>
 			</View>
