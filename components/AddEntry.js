@@ -97,7 +97,7 @@ class AddEntry extends Component {
 
 		if(this.props.alreadyLogged){
 			return (
-				<View>
+				<View >
 					<Ionicons
 						name='ios-happy-outline'
 						size={100}
