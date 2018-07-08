@@ -108,7 +108,14 @@ class AddEntry extends Component {
 					/>
 					<Text>You already logged your infomation for today</Text>
 
-				<TextButton onPress={this.reset} style= {{padding: 10}}>
+				<TextButton 
+					onPress={this.reset} 
+					style={Platform.OS === 'ios' 
+							? styles.iosResetBtn
+							: styles.androidResetBtn
+					}
+					styleChild={styles.BtnText}
+				>
 					Reset
 				</TextButton>
 
@@ -151,7 +158,7 @@ class AddEntry extends Component {
 							? styles.iosSubmitBtn
 							: styles.androidSubmitBtn
 					}
-					styleChild={styles.submitBtnText}
+					styleChild={styles.BtnText}
 				>
 					Submit
 				</TextButton>
@@ -206,7 +213,7 @@ const styles= StyleSheet.create({
 		alignItems: 'center'
 
 	},
-	submitBtnText: {
+	BtnText: {
 		color: white,
 		fontSize: 22,
 		textAlign: 'center'
@@ -227,4 +234,27 @@ const styles= StyleSheet.create({
 		marginLeft: 30,
 
 	},
+	iosResetBtn: {
+		backgroundColor: purple,
+		padding: 10,
+		borderRadius: 7,
+		height: 45,
+		marginLeft: 40,
+		marginRight: 40,
+	 },
+	androidResetBtn: {
+		backgroundColor: red,
+		margin: 10,
+		padding: 5,
+		paddingLeft: 30,
+		paddingRight: 30,
+		borderRadius: 2,
+		height: 45,
+		alignSelf: 'center',
+		justifyContent: 'center',
+		alignItems: 'center'
+
+	},
+	
+
 })
