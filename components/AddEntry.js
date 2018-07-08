@@ -8,18 +8,6 @@ import TextButton from './TextButton'
 import { Ionicons } from '@expo/vector-icons'
 
 
-
-function SubmitBtn ({ onPress }) {
-	return(
-		<TouchableOpacity
-			onPress= {onPress}
-		>
-			<Text>SUBMIT</Text>
-		</TouchableOpacity>
-
-	)
-}
-
 export default class AddEntry extends Component {
 
 	state ={
@@ -92,14 +80,14 @@ export default class AddEntry extends Component {
 
 		// update 'DB'
 
-		
+
 
 	}
 
 	render () {
 		const metaInfo = getMetricMetaInfo()
 
-		if(true){
+		if(this.props.alreadyLogged){
 			return (
 				<View>
 					<Ionicons
@@ -145,7 +133,10 @@ export default class AddEntry extends Component {
 						</View>
 					)
 				})}	
-				<SubmitBtn onPress={this.submit} />			
+				<TextButton onPress={this.submit}>
+					Submit
+				</TextButton>
+				
 			</View>
 		)
 	}
