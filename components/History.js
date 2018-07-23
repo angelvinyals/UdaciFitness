@@ -10,23 +10,21 @@ class History extends Component {
 		const { dispatch } = this.props 
 
 		fetchCalendarResults()
-			.then((entries) => dispatch(receiveEntries(entries)))
+			.then((entries) =>  dispatch(receiveEntries(entries)))
 			.then(({entries}) =>{
-				console.log("entries:  --->",entries)
 				if(!entries[timeToString()]){
 					dispatch(addEntry({
 						[timeToString()]: getDailyReminderValue()
 					}))
 				}
-			})
-
+				console.log('entries after if: ', entries)
+			})	
 
 	}
 
 	render(){
 		return(
 			<View>
-				<Text>History</Text>
 				<Text>{JSON.stringify(this.props)}</Text>
 			</View>
 		)
@@ -35,8 +33,9 @@ class History extends Component {
 
 
 function mapStateToProps (entries) {
-	return(
+	return {
 		entries
-	)
+	}
+	
 }
-export default connect()(History)
+export default connect(mapStateToProps)(History)

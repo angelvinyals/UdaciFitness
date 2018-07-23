@@ -5,6 +5,7 @@ function entries( state= {} , action) {
 	switch (action.type) {
 
 	    case RECEIVE_ENTRIES:
+	    	//console.log('recieve entries:',action.entries)
 	      return {
 	      	...state,
 	      	...action.entries
