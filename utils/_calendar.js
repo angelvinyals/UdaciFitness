@@ -30,7 +30,7 @@ function setDummyData () {
   }
 
   AsyncStorage.setItem(CALENDAR_STORAGE_KEY, JSON.stringify(dummyData))
-
+  
   return dummyData
 }
 
